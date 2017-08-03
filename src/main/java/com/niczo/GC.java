@@ -1,0 +1,18 @@
+package com.niczo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Author:nic
+ * Date:2017-08-01
+ */
+public class GC {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<String>();
+        for (int i = 0; i < 1000; i++) {
+            list.add(new String("The number is"+i));
+        }
+        System.gc();
+    }
+}

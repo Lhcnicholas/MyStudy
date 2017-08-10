@@ -1,7 +1,7 @@
 package com.niczo;
 
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Random;
 
 /**
  * DES:
@@ -22,6 +22,58 @@ public class SimpleTest {
         }
         new Thread(() -> System.out.println("我才不干呢!")).start();
 
+        //repeatMessage("嘿嘿嘿",50);
 
+        IntSequence intSequence = randomInts(1,10);
+
+        ;
+
+    }
+
+    public static void repeatMessage(String text,int count){
+        new Thread(() -> {
+            for (int i = 0;i < count;i++){
+                System.out.println(text);
+            }
+        }).start();
+    }
+
+    private static Random generator = new Random();
+
+
+    private static IntSequence randomInts(int low, int high){
+        //局部内部类
+        /*class RandomSequence implements IntSequence{
+
+            @Override
+            public int next() {
+                return low+generator.nextInt(high-low+1);
+            }
+
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+        }
+
+        return new RandomSequence();*/
+        //匿名类
+        return new IntSequence() {
+            @Override
+            public int next() {
+                return low+generator.nextInt(high-low+1);
+            }
+
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+        };
+    }
+
+    public static <T> void swap(T[] array,int i,int j){
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }

@@ -1,4 +1,4 @@
-package com.niczo;
+package com.niczo.Simple;
 
 /**
  * DES:接口练习

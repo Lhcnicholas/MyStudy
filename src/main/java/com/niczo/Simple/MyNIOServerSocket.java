@@ -1,4 +1,4 @@
-package com.niczo;
+package com.niczo.Simple;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

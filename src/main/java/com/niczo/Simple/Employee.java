@@ -1,4 +1,4 @@
-package com.niczo;
+package com.niczo.Simple;
 
 import java.io.Serializable;
 
@@ -49,5 +49,9 @@ public class Employee implements Measurable,Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static int getNames(Employee a, Employee b){
+        return a.getName().length() - b.getName().length();
     }
 }

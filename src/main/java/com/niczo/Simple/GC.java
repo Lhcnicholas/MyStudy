@@ -1,4 +1,4 @@
-package com.niczo;
+package com.niczo.Simple;
 
 import java.util.ArrayList;
 import java.util.List;

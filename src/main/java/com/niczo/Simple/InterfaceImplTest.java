@@ -1,6 +1,4 @@
-package com.niczo;
-
-import java.util.Map;
+package com.niczo.Simple;
 
 /**
  * DES:

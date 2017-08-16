@@ -1,6 +1,7 @@
-package com.niczo;
+package com.niczo.Simple;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -14,8 +15,8 @@ public class SimpleTest {
         String[] array1 = new String[]{"nic","pick","lilei","fuck"};
         String str1 = "Hello,World!There is nic's test";
 
-        Arrays.sort(array1,(s1,s2) -> s1.length()-s2.length());
-        System.out.println("str1 是String类型");
+        Arrays.sort(array1, Comparator.comparingInt(String::length));
+
         for (String i :
                 array1) {
             System.out.println(i);
@@ -26,7 +27,9 @@ public class SimpleTest {
 
         IntSequence intSequence = randomInts(1,10);
 
-        ;
+        Integer value = 1234;
+        changeValue(value);
+        System.out.println(value);
 
     }
 
@@ -75,5 +78,9 @@ public class SimpleTest {
         T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
+    }
+
+    public static void changeValue(Integer str){
+        str = str + 5;
     }
 }

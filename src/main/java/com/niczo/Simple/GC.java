@@ -15,4 +15,8 @@ public class GC {
         }
         System.gc();
     }
+
+    public void heihei(){
+        System.out.println("heiheiheiGC");
+    }
 }

@@ -1,7 +1,10 @@
 package com.niczo.Simple;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -12,7 +15,7 @@ import java.util.Random;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        String[] array1 = new String[]{"nic","pick","lilei","fuck"};
+        String[] array1 = new String[]{"nic","pick","lilei","fuck","中国人"};
         String str1 = "Hello,World!There is nic's test";
 
         Arrays.sort(array1, Comparator.comparingInt(String::length));
@@ -30,6 +33,12 @@ public class SimpleTest {
         Integer value = 1234;
         changeValue(value);
         System.out.println(value);
+
+        System.out.println(array1[1] + array1[1].getBytes().length);
+
+        System.out.println("----------------------------------------");
+
+        System.out.println(DateFormatUtils.ISO_DATE_FORMAT.format(new Date()));
 
     }
 

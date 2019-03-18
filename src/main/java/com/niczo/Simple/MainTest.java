@@ -7,7 +7,9 @@ package com.niczo.Simple;
  */
 public class MainTest {
     public static void main(String[] args) {
-        testMethod(new VarTest());
+        //testMethod(new VarTest());
+        testMethod(new CronTest());
+        //testMethod(new IteratorTest());
     }
 
 

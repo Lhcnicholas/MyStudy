@@ -16,7 +16,7 @@ public class CronTest implements Test{
 //		System.out.println(trigger.nextExecutionTime(context));
 
 		try {
-			CronExpression a = new CronExpression("0 40 15 11 3 ?");
+			CronExpression a = new CronExpression("0 40 15 11 * ?");
 			System.out.println(a.getNextValidTimeAfter(new Date()));
 		} catch (ParseException e) {
 			e.printStackTrace();

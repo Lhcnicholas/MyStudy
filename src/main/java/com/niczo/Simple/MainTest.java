@@ -17,3 +17,20 @@ public class MainTest {
         test.test();
     }
 }
+
+
+class BaseDriver {
+    private boolean hasDone = false;
+
+    public void androidDriver() {
+        if (!hasDone) {
+            /*
+              处理逻辑
+             */
+            hasDone = true;
+        } else {
+
+        }
+    }
+
+}

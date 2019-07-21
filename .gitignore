@@ -4,4 +4,7 @@
 target/
 
 
-.Mystudy.iml
+.MyStudy.iml
+.DS_Store
+bcd.txt
+/MyStudy.iml

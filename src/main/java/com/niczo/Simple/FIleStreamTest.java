@@ -40,7 +40,7 @@ public class FIleStreamTest implements Runnable{
 		File file = new File("abc.pdf");
 		File zipFile = new File("a.zip");
 
-		byte[] result = (valu e.toString()+" ").getBytes();
+		byte[] result = (value.toString()+" ").getBytes();
 		System.out.println("写入成功,值为:" + value);
 //		FileOutputStream out = new FileOutputStream("bcd.txt", true);
 //		out.write(result);

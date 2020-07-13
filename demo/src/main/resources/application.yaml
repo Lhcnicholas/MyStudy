@@ -1,0 +1,21 @@
+dubbo:
+  application:
+    name: myStudy
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    simplified: true
+  consumer:
+    version: local_1.0.0
+    check: false
+  protocol:
+    name: dubbo
+    port: 20880
+
+logging:
+  level:
+    root: info
+
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+

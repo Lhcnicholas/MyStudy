@@ -1,5 +1,12 @@
 package com.niczo.Simple;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.parser.ParserConfig;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.util.Arrays;
@@ -15,31 +22,17 @@ import java.util.Random;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        String[] array1 = new String[]{"nic","pick","lilei","fuck","中国人"};
-        String str1 = "Hello,World!There is nic's test";
+        String json = "{\"name\":\"lihongcheng\",age:null}";
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
 
-        Arrays.sort(array1, Comparator.comparingInt(String::length));
+        SerializerFeature[] serializerFeatures = new SerializerFeature[]{
+                SerializerFeature.WriteNullNumberAsZero
+        };
+        fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        for (String i :
-                array1) {
-            System.out.println(i);
-        }
-        new Thread(() -> System.out.println("我才不干呢!")).start();
+        JSONObject jsonObject = JSON.parseObject(json);
 
-        //repeatMessage("嘿嘿嘿",50);
-
-        IntSequence intSequence = randomInts(1,10);
-
-        Integer value = 1234;
-        changeValue(value);
-        System.out.println(value);
-
-        System.out.println(array1[1] + array1[1].getBytes().length);
-
-        System.out.println("----------------------------------------");
-
-        System.out.println(DateFormatUtils.ISO_DATE_FORMAT.format(new Date()));
-
+        System.out.println(jsonObject);
     }
 
     public static void repeatMessage(String text,int count){

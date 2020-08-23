@@ -7,12 +7,12 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Random;
+import java.math.BigDecimal;
+import java.text.MessageFormat;
+import java.util.*;
 
 /**
  * DES:
@@ -22,17 +22,23 @@ import java.util.Random;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        String json = "{\"name\":\"lihongcheng\",age:null}";
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+        List<User> list = new ArrayList<>();
 
-        SerializerFeature[] serializerFeatures = new SerializerFeature[]{
-                SerializerFeature.WriteNullNumberAsZero
-        };
-        fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        User a = new User();
+        a.setName("a");
 
-        JSONObject jsonObject = JSON.parseObject(json);
+        User b = new User();
+        b.setName("b");
+        list.add(a);
+        list.add(b);
 
-        System.out.println(jsonObject);
+        list.forEach(user -> user.setName("heihei"));
+        System.out.println(list);
+
+        for (User s : list) {
+        	s.setName("宝贝宝贝宝贝");
+        }
+        System.out.println(list);
     }
 
     public static void repeatMessage(String text,int count){

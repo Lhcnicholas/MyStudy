@@ -235,11 +235,22 @@ class User {
 		return "李鸿程";
 	}
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"name='" + name + '\'' +
+				'}';
+	}
+
 	public String getSex() {
 		return "Male";
 	}
 
 	public Integer getAge() {
 		return 18;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

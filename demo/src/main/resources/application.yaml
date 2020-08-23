@@ -19,3 +19,9 @@ spring:
   activemq:
     broker-url: tcp://localhost:61616
 
+xxl:
+  job:
+    admin:
+      address: www.baidu.com
+
+#a: 123

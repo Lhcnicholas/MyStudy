@@ -22,23 +22,13 @@ import java.util.*;
  */
 public class SimpleTest {
     public static void main(String[] args) {
-        List<User> list = new ArrayList<>();
+        BigDecimal a = new BigDecimal("123");
 
-        User a = new User();
-        a.setName("a");
+        BigDecimal b = a;
 
-        User b = new User();
-        b.setName("b");
-        list.add(a);
-        list.add(b);
+        b = b.add(BigDecimal.valueOf(321));
 
-        list.forEach(user -> user.setName("heihei"));
-        System.out.println(list);
-
-        for (User s : list) {
-        	s.setName("宝贝宝贝宝贝");
-        }
-        System.out.println(list);
+        System.out.println(a.toPlainString());
     }
 
     public static void repeatMessage(String text,int count){

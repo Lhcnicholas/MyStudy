@@ -1,11 +1,9 @@
 package com.niczo.dubbo.service.controller;
 
 import com.niczo.dubbo.service.UserService;
+import com.niczo.dubbo.service.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("user")
@@ -16,6 +14,13 @@ public class UserController {
 
 	@GetMapping("get")
 	public String get(Integer id) {
-		return "";
+		UserDto user = userService.getUser(id);
+		return user.getName();
+	}
+
+	@PostMapping("new")
+	public String insert(@RequestBody UserDto userDto) {
+		userService.addUser(userDto);
+		return "成功";
 	}
 }

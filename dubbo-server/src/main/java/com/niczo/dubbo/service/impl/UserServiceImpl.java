@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @org.apache.dubbo.config.annotation.Service(version = "0.0.1")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserMapper userMapper;
@@ -22,6 +22,16 @@ public class UserServiceImpl implements UserService {
 		User user1 = new User();
 		BeanUtils.copyProperties(user, user1);
 
-		userMapper.insert(user1);
+		userMapper.insertSelective(user1);
 	}
+
+	@Override
+	public UserDto getUser(Integer id) {
+		User user = userMapper.selectById(id);
+		UserDto userDto = new UserDto();
+		BeanUtils.copyProperties(user, userDto);
+		return userDto;
+	}
+
+
 }

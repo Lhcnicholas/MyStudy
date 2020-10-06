@@ -1,0 +1,50 @@
+server:
+  port: 8092
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?nullCatalogMeansCurrent=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+# Mybatis-plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# dubbo配置
+dubbo:
+  application:
+    name: dubbo-service
+    id: dubbo-service
+  provider:
+    executes: 100
+    retries: 0
+    version: local
+  consumer:
+    cluster: failfast
+    retries: 0
+    check: false
+  protocol:
+    name: dubbo
+  registry:
+    address: zookeeper://localhost:2181
+    simplified: true
+
+# seata配置
+seata:
+  application-id: myStudy
+  config:
+    type: file
+  enabled: true
+  registry:
+    type: file
+  service:
+    disable-global-transaction: false
+    vgroup-mapping:
+      second_tx: local
+    grouplist:
+      local: 127.0.0.1:8091
+  tx-service-group: second_tx
+logging:
+  level:
+    com:
+      niczo: debug

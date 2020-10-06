@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 /**
  * @author lhc
  */
-@Service
 @Slf4j
 public class UserService {
 

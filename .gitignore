@@ -8,3 +8,5 @@ target/
 bcd.txt
 /MyStudy.iml
 /.idea/
+/dubbo-server/dubbo-server.iml
+/dubbo-service/dubbo-service.iml

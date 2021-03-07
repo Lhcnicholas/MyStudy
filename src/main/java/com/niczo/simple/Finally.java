@@ -9,8 +9,6 @@ package com.niczo.simple;
 public class Finally {
     public static void main(String[] args) {
         System.out.println("return value of test(): " + test());
-        //System.out.println("return value of test1():" + test1());
-//        test2();
     }
 
     private static int test() {

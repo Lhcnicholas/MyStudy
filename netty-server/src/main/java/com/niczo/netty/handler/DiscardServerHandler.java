@@ -4,7 +4,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
@@ -22,8 +24,19 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 	}
 
 	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		System.out.println(ctx.channel().remoteAddress() + "上线");
+	}
+
+	@Override
+	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+		System.out.println(ctx.channel().remoteAddress() + "下线");
+	}
+
+	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		cause.printStackTrace();
+		System.out.println("异常结束");
+		log.info("异常结束", cause);
 		ctx.close();
 	}
 }

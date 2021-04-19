@@ -9,6 +9,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 public class DiscardServer {
 
@@ -24,8 +26,10 @@ public class DiscardServer {
 					.channel(NioServerSocketChannel.class)
 					.childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
-						protected void initChannel(SocketChannel ch) throws Exception {
-							ch.pipeline().addLast(new DiscardServerHandler());
+						protected void initChannel(SocketChannel ch) {
+							ch.pipeline().addLast(new LineBasedFrameDecoder(80))
+									.addLast(new StringDecoder())
+									.addLast(new DiscardServerHandler());
 						}
 					})
 					.option(ChannelOption.SO_BACKLOG, 128)

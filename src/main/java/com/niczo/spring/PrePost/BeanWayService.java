@@ -1,4 +1,4 @@
-package com.niczo.Spring.PrePost;
+package com.niczo.spring.PrePost;
 
 /**
  * DES:

@@ -1,4 +1,4 @@
-package com.niczo.Spring.EL.Service;
+package com.niczo.spring.el.Service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

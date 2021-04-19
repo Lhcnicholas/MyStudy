@@ -1,4 +1,4 @@
-package com.niczo.MyTomcat;
+package com.niczo.tomcat;
 
 public abstract class MyServlet {
 

@@ -1,4 +1,4 @@
-package com.niczo.MyTomcat;
+package com.niczo.tomcat;
 
 public class ServletMapping {
 	private String servletName;

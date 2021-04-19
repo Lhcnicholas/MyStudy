@@ -1,4 +1,4 @@
-package com.niczo.MyTomcat;
+package com.niczo.tomcat;
 
 import java.util.ArrayList;
 import java.util.List;

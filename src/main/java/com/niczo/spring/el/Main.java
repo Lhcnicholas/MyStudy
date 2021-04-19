@@ -1,6 +1,6 @@
-package com.niczo.Spring.EL;
+package com.niczo.spring.el;
 
-import com.niczo.Spring.EL.Config.ElConfig;
+import com.niczo.spring.el.Config.ElConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

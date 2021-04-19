@@ -1,4 +1,4 @@
-package com.niczo.MyTomcat;
+package com.niczo.tomcat;
 
 import java.io.IOException;
 import java.io.OutputStream;

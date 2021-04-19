@@ -1,4 +1,4 @@
-package com.niczo.Spring.EL.Config;
+package com.niczo.spring.el.Config;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.core.io.Resource;
  * DATE:2017/8/16
  */
 @Configuration
-@ComponentScan("com.niczo.Spring.EL.Service")
+@ComponentScan("com.niczo.spring.el.Service")
 @PropertySource("classpath:test.properties")
 public class ElConfig {
 

@@ -8,8 +8,13 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
+import lombok.extern.slf4j.Slf4j;
 
 
+/**
+ * @author lhc
+ */
+@Slf4j
 public class Client {
 
     public static void main(String[] args) throws InterruptedException {
@@ -31,11 +36,11 @@ public class Client {
             ChannelFuture sync = future.channel().closeFuture().sync();
             sync.addListener(future1 -> {
                 if (future1.isSuccess()) {
-                    System.out.println("关闭成功");
+                    log.info("关闭成功");
                 } else if (future1.isCancelled()) {
-                    System.out.println("close cancelled");
+                    log.info("close cancelled");
                 } else {
-                    System.out.println("close error");
+                    log.info("close error");
                 }
             });
         } finally {

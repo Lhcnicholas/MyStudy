@@ -6,6 +6,9 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author lhc
+ */
 @Slf4j
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
@@ -14,8 +17,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 		ByteBuf in = (ByteBuf) msg;
 		try {
 			while (in.isReadable()) {
-				System.out.print((char)in.readByte());
-				System.out.flush();
+				log.info(String.valueOf((char)in.readByte()));
 				ctx.flush();
 			}
 		} finally {
@@ -25,17 +27,16 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println(ctx.channel().remoteAddress() + "上线");
+		log.info(ctx.channel().remoteAddress() + "上线");
 	}
 
 	@Override
 	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println(ctx.channel().remoteAddress() + "下线");
+		log.info(ctx.channel().remoteAddress() + "下线");
 	}
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		System.out.println("异常结束");
 		log.info("异常结束", cause);
 		ctx.close();
 	}

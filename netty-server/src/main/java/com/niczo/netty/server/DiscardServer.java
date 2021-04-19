@@ -11,7 +11,12 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
+import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @author lhc
+ */
+@Slf4j
 public class DiscardServer {
 
 	public static void main(String[] args) {
@@ -36,10 +41,11 @@ public class DiscardServer {
 					.childOption(ChannelOption.SO_KEEPALIVE, true);
 
 			ChannelFuture channelFuture = serverBootstrap.bind(8888).sync();
-			System.out.println("服务器启动成功，端口号：8888");
+			log.info("服务器启动成功，端口号：8888");
 			channelFuture.channel().closeFuture().sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		} finally {
 			parentGroup.shutdownGracefully();
 			childGroup.shutdownGracefully();

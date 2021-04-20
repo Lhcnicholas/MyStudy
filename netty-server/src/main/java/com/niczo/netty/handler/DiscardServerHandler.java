@@ -14,14 +14,18 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		ByteBuf in = (ByteBuf) msg;
-		try {
-			while (in.isReadable()) {
-				log.info(String.valueOf((char)in.readByte()));
-				ctx.flush();
+		if (msg instanceof String) {
+			log.info((String) msg);
+		} else {
+			ByteBuf in = (ByteBuf) msg;
+			try {
+				while (in.isReadable()) {
+					log.info(String.valueOf((char)in.readByte()));
+					ctx.flush();
+				}
+			} finally {
+				ReferenceCountUtil.release(msg);
 			}
-		} finally {
-			ReferenceCountUtil.release(msg);
 		}
 	}
 

@@ -12,6 +12,7 @@
     <module>demo</module>
     <module>rest-template</module>
     <module>springsessiion</module>
+    <module>test</module>
   </modules>
   <packaging>pom</packaging>
 

@@ -19,8 +19,8 @@ public class GatewayApplication {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("path_route", r -> r.path("/boss2/*")
-                        .uri("https://qa8boss.qjdchina.com/"))
+                .route("path_route", r -> r.path("/s**")
+                        .uri("https://www.baidu.com/"))
                 .build();
     }
 }

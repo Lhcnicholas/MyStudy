@@ -11,3 +11,25 @@ spring:
           uri: https://blog.csdn.net
           predicates:
             - Path=/csdn
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        cloud:
+          gateway: debug
+        http:
+          server:
+            reactive: debug
+        web:
+          reactive: debug
+          server:
+            adapter: debug
+        boot:
+          autoconfigure:
+            web: debug
+    reactor:
+      netty: info
+    redisratelimiter: debug
+

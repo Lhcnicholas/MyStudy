@@ -13,8 +13,8 @@ mybatis-plus:
 # dubbo配置
 dubbo:
   application:
-    name: dubbo-service
-    id: dubbo-service
+    name: dubbo-server
+    id: dubbo-server
   provider:
     executes: 100
     retries: 0

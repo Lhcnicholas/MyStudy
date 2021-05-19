@@ -9,6 +9,9 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 
+/**
+ * @author lhc
+ */
 @Component
 @Slf4j
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
